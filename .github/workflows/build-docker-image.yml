@@ -26,10 +26,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: |
-          docker build -t sampath0107/myapp:${{ github.sha }} .
+        run: docker build -t sampath0107/myapp:${{ github.sha }} .
 
       - name: Push Docker image
         if: github.ref == 'refs/heads/main'
-        run: |
-          docker push sampath0107/myapp:${{ github.sha }}
+        run: docker push sampath0107/myapp:${{ github.sha }}
